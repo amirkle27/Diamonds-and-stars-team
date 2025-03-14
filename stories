@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="he">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📖 סיפורים וזיכרונות</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            direction: rtl;
+            background-color: #f0f8ff;
+        }
+        .story {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 10px auto;
+            max-width: 600px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+
+    <h1>📖 סיפורים וזיכרונות</h1>
+
+    <div id="storyList">
+        <h2>📜 סיפורים קיימים:</h2>
+        <ul id="stories"></ul>
+    </div>
+
+    <h2>📜 הוסף סיפור חדש</h2>
+    <textarea id="storyInput" placeholder="כתוב כאן את הסיפור שלך"></textarea>
+    <button onclick="addStory()">💾 שמור סיפור</button>
+
+    <script>
+        function addStory() {
+            let input = document.getElementById("storyInput");
+            let newStory = document.createElement("li");
+            let storyText = input.value;
+            let storyLink = document.createElement("a");
+            storyLink.href = "#";
+            storyLink.textContent = storyText.substring(0, 20) + "...";
+            newStory.appendChild(storyLink);
+            document.getElementById("stories").appendChild(newStory);
+            input.value = "";
+        }
+    </script>
+
+    <a href="index.html" class="button">🔙 חזור לעמוד הראשי</a>
+
+</body>
+</html>
